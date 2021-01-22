@@ -1,0 +1,12 @@
+{
+  "name": "ActivePower",
+  "displayName": "ActivePower",
+  "expo": {
+    "name": "ActivePower",
+    "slug": "ActivePower",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
