@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { FontAwesome5, AntDesign } from '@expo/vector-icons'
 import Gratis from '../pages/Gratis'
 import Lista from '../components/Lista'
-import { Button, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, TextInput } from 'react-native'
 import { IconButton, Colors } from 'react-native-paper'
+import { ScreenContainer } from 'react-native-screens'
 
 const Stack = createStackNavigator()
 
@@ -58,19 +59,43 @@ const CustomHeader = ({ scene, previous, navigation }) => {
 			title={title}
 			leftButton={previous ? <BackBtn onPress={navigation.goBack} /> : undefined}
 			style={options.headerStyle}
-			navigator={navigator}
+			navigator={navigation}
 		/>
 	)
 }
 
-const Header = ({ title, leftButton }) => {
+const Header = ({ title, leftButton, navigator }) => {
+	const [value, setValue] = useState('')
 	return (
-		<View style={styles.bar}>
-			<Text style={styles.text}>{title}</Text>
-
-			{leftButton}
-		</View>
+		<ScreenContainer style={styles.bar}>
+			<View>
+				<Text style={styles.text}>{title}</Text>
+				<SelectorBtn leftBtn={leftButton} navigator={navigator} />
+			</View>
+			<View style={styles.inputContainer}>
+				<TextInput
+					style={styles.textInput}
+					onChangeText={text => setValue(text)}
+					value={value}
+				/>
+				<AntDesign style={styles.iconSearch} name='search1' size={20} color='black' />
+			</View>
+		</ScreenContainer>
 	)
+}
+
+const SelectorBtn = ({ leftBtn, navigator }) => {
+	if (leftBtn !== undefined) {
+		console.log(navigator)
+		return <BackBtn onPress={navigator.goBack} />
+	} else {
+		return (
+			<IconButton
+				style={styles.icon}
+				icon={() => <FontAwesome5 name='bars' size={24} color='black' />}
+			/>
+		)
+	}
 }
 
 const BackBtn = ({ onPress }) => {
@@ -83,17 +108,16 @@ const BackBtn = ({ onPress }) => {
 	)
 }
 
-const IconBars = () => <FontAwesome5 name='bars' size={24} color='black' />
-
+//styles
 const styles = StyleSheet.create({
 	bar: {
 		backgroundColor: Colors.red200,
 		height: '50px',
 		position: 'relative',
-		borderBottomColor: Colors.black,
+		display: 'flex',
 	},
 	text: {
-		marginLeft: '35px',
+		marginLeft: '50px',
 		marginTop: '12px',
 		fontWeight: 'bold',
 		fontSize: '18px',
@@ -105,6 +129,24 @@ const styles = StyleSheet.create({
 		left: 0,
 		top: '7px',
 	},
+	inputContainer: {
+		position: 'absolute',
+		top: '7px',
+		right: '5px',
+	},
+	textInput: {
+		borderWidth: 1,
+		height: '30px',
+		width: '80px',
+		borderRadius: '25px',
+		textAlign: 'center',
+	},
+	iconSearch: {
+		position: 'absolute',
+		right: '10px',
+		top: '3px',
+	},
 })
 
+const IconBars = () => <FontAwesome5 name='bars' size={24} color='black' />
 export default GratisNavigator
