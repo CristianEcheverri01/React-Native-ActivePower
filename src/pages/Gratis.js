@@ -1,13 +1,11 @@
 import React from 'react'
 import { Button, Text, View } from 'react-native'
-import Menu from '../components/Menu'
 
-const Gratis = ({ navigate }) => {
+const Gratis = ({ navigation, route }) => {
 	return (
 		<View>
-			<Menu />
 			<Text style={{ textAlign: 'center', fontSize: 25, marginTop: '50%' }}>Gratis</Text>
-			<Button onPress={() => navigate.navigador('pedro')} title='olero' />
+			<Button onPress={() => navigation.navigate('pedro')} title='pedro' />
 		</View>
 	)
 }
