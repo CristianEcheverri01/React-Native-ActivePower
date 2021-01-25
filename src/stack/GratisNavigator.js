@@ -11,18 +11,7 @@ const Stack = createStackNavigator()
 
 const GratisNavigator = () => {
 	return (
-		<Stack.Navigator
-			screenOptions={{
-				headerStyle: {
-					alignItems: 'center',
-					justifyContent: 'center',
-				},
-				headerTintColor: '#111',
-				headerTitleStyle: {
-					fontWeight: 'bold',
-				},
-			}}
-		>
+		<Stack.Navigator>
 			<Stack.Screen
 				component={Gratis}
 				name='Gratis'
@@ -86,13 +75,12 @@ const Header = ({ title, leftButton, navigator }) => {
 
 const SelectorBtn = ({ leftBtn, navigator }) => {
 	if (leftBtn !== undefined) {
-		console.log(navigator)
 		return <BackBtn onPress={navigator.goBack} />
 	} else {
 		return (
 			<IconButton
 				style={styles.icon}
-				icon={() => <FontAwesome5 name='bars' size={24} color='black' />}
+				icon={() => <FontAwesome5 name='bars' size={24} color={Colors.amber500} />}
 			/>
 		)
 	}
@@ -102,7 +90,7 @@ const BackBtn = ({ onPress }) => {
 	return (
 		<IconButton
 			onPress={onPress}
-			icon={() => <AntDesign name='left' size={24} color='black' />}
+			icon={() => <AntDesign name='left' size={24} color={Colors.amber500} />}
 			style={styles.icon}
 		></IconButton>
 	)
@@ -111,7 +99,6 @@ const BackBtn = ({ onPress }) => {
 //styles
 const styles = StyleSheet.create({
 	bar: {
-		backgroundColor: Colors.red200,
 		height: '50px',
 		position: 'relative',
 		display: 'flex',
@@ -147,6 +134,4 @@ const styles = StyleSheet.create({
 		top: '3px',
 	},
 })
-
-const IconBars = () => <FontAwesome5 name='bars' size={24} color='black' />
 export default GratisNavigator

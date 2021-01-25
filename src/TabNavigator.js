@@ -23,7 +23,7 @@ const TabNavigator = () => {
 			<Tab.Screen
 				name='Premium'
 				component={PremiumNavigator}
-				initialParams={{ icon: 'plus' }}
+				initialParams={{ icon: 'staro' }}
 			/>
 			<Tab.Screen
 				name='Mensaje'
