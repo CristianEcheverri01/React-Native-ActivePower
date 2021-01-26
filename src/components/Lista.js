@@ -1,32 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
 import { FlatList, ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
 import { Colors } from 'react-native-paper'
-import ImgEJ from '../img/ejercicio.png'
 
-const Lista = ({ premium }) => {
-	const [view, setView] = useState(false)
-	const [values, setValues] = useState({
-		lista: [
-			{
-				nombre: 'FullBody',
-				des:
-					'Esta rutina es pensada para los principiantes, para entrenar todo el cuepesillo. ',
-			},
-			{
-				nombre: 'FullBody',
-				des:
-					'Esta rutina es pensada para los principiantes, para entrenar todo el cuepesillo. ',
-			},
-		],
-	})
-
+const Lista = ({ navigation, premium, data }) => {
 	const keyExtractor = (item, index) => index.toString()
 
 	const renderItem = ({ item }) => (
 		<TouchableOpacity>
-			<View style={styles.card}>
-				<Image source={{ url: 'https://reactjs.org/logo-og.png' }} />
+			<View
+				style={styles.card}
+				onTouchStart={() => {
+					navigation.navigate('InfoRutina', { data: item })
+				}}
+			>
 				<Selector item={item} />
 			</View>
 		</TouchableOpacity>
@@ -36,15 +23,15 @@ const Lista = ({ premium }) => {
 		if (premium) {
 			return (
 				<View>
-					<Text style={styles.titlesito}> {item.nombre}</Text>
-					<Text style={styles.dessito}> {item.des}</Text>
+					<Text style={styles.titlesito}>{item.nombre}</Text>
+					<Text style={styles.dessito}>{item.des}</Text>
 				</View>
 			)
 		} else {
 			return (
 				<View>
-					<Text style={styles.title}> {item.nombre}</Text>
-					<Text style={styles.des}> {item.des}</Text>
+					<Text style={styles.title}>{item.nombre}</Text>
+					<Text style={styles.des}>{item.des}</Text>
 				</View>
 			)
 		}
@@ -53,11 +40,7 @@ const Lista = ({ premium }) => {
 	return (
 		<ScrollView>
 			<View style={styles.container}>
-				<FlatList
-					keyExtractor={keyExtractor}
-					data={values.lista}
-					renderItem={renderItem}
-				/>
+				<FlatList keyExtractor={keyExtractor} data={data} renderItem={renderItem} />
 			</View>
 		</ScrollView>
 	)

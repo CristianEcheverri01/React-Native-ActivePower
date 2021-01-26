@@ -6,6 +6,7 @@ import Lista from '../components/Lista'
 import { StyleSheet, Text, View, TextInput } from 'react-native'
 import { IconButton, Colors } from 'react-native-paper'
 import { ScreenContainer } from 'react-native-screens'
+import InfoRutina from '../components/InfoRutina'
 
 const Stack = createStackNavigator()
 
@@ -14,6 +15,7 @@ const GratisNavigator = () => {
 		<Stack.Navigator>
 			<Stack.Screen
 				component={Gratis}
+				initialParams={{ data }}
 				name='Gratis'
 				options={{
 					title: 'Rutinas gratuitas',
@@ -28,9 +30,30 @@ const GratisNavigator = () => {
 					header: CustomHeader,
 				}}
 			/>
+			<Stack.Screen
+				component={InfoRutina}
+				name='InfoRutina'
+				options={{
+					title: 'InfoRutina',
+					header: CustomHeader,
+				}}
+			/>
 		</Stack.Navigator>
 	)
 }
+
+//data
+const data = [
+	{
+		nombre: 'FullBody',
+		des:
+			'Esta rutina es pensada para los principiantes, para entrenar todo el cuepesillo. ',
+	},
+	{
+		nombre: 'loco',
+		des: 'no hay nada de que hablar pa. ',
+	},
+]
 
 //custom header
 
