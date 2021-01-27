@@ -7,6 +7,7 @@ import { StyleSheet, Text, View, TextInput } from 'react-native'
 import { IconButton, Colors } from 'react-native-paper'
 import { ScreenContainer } from 'react-native-screens'
 import InfoRutina from '../components/InfoRutina'
+import Info from '../pages/Info'
 
 const Stack = createStackNavigator()
 
@@ -23,18 +24,18 @@ const GratisNavigator = () => {
 				}}
 			/>
 			<Stack.Screen
-				component={Lista}
-				name='pedro'
-				options={{
-					title: 'pedro',
-					header: CustomHeader,
-				}}
-			/>
-			<Stack.Screen
 				component={InfoRutina}
 				name='InfoRutina'
 				options={{
 					title: 'InfoRutina',
+					header: CustomHeader,
+				}}
+			/>
+			<Stack.Screen
+				component={Info}
+				name='Info'
+				options={{
+					title: 'Info',
 					header: CustomHeader,
 				}}
 			/>
@@ -45,12 +46,16 @@ const GratisNavigator = () => {
 //data
 const data = [
 	{
-		nombre: 'FullBody',
+		img:
+			'https://image.freepik.com/foto-gratis/grupo-personas-haciendo-ejercicios-calentamiento-gimnasio_23-2147949530.jpg',
+		nombre: 'loquito',
 		des:
 			'Esta rutina es pensada para los principiantes, para entrenar todo el cuepesillo. ',
 	},
 	{
-		nombre: 'loco',
+		img:
+			'https://image.freepik.com/vector-gratis/establecer-personas-haciendo-ejercicio_18591-36176.jpg',
+		nombre: 'prueba',
 		des: 'no hay nada de que hablar pa. ',
 	},
 ]

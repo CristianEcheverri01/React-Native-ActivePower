@@ -1,18 +1,18 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native'
 import { FlatList, ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
-import { Colors } from 'react-native-paper'
 
-const Lista = ({ navigation, premium, data }) => {
+const ListaInfo = ({ navigation, premium, data }) => {
 	const keyExtractor = (item, index) => index.toString()
 
 	const renderItem = ({ item }) => {
+		console.log(item)
 		return (
 			<TouchableOpacity>
 				<View
 					style={styles.card}
 					onTouchStart={() => {
-						navigation.navigate('InfoRutina', { data: item })
+						navigation.navigate('Info', { data: item })
 					}}
 				>
 					<Image source={{ uri: item.img }} style={styles.img} />
@@ -104,4 +104,4 @@ const styles = StyleSheet.create({
 	},
 })
 
-export default Lista
+export default ListaInfo
