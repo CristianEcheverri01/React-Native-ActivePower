@@ -12,11 +12,18 @@ import Info from '../pages/Info'
 const Stack = createStackNavigator()
 
 const GratisNavigator = () => {
+	const getNumeber = () => {
+		let min = 0
+		let max = msg.length
+		return Math.floor(Math.random() * (max - min) + min)
+	}
+	const number = getNumeber()
+
 	return (
 		<Stack.Navigator>
 			<Stack.Screen
 				component={Gratis}
-				initialParams={{ data }}
+				initialParams={{ data, msg: msg[number] }}
 				name='Gratis'
 				options={{
 					title: 'Rutinas gratuitas',
@@ -60,6 +67,20 @@ const data = [
 	},
 ]
 
+//msg
+
+const msg = [
+	{
+		msg: 'Si entrenas duro, no solo seras duro, seras duro de superar',
+	},
+	{
+		msg:
+			'Nuestro cuerpo es capaz de todo. Es nuestra mente a quien tenemos que convencer',
+	},
+	{
+		msg: 'El dolor que sientes hoy es la fuerza que sentirás mañana',
+	},
+]
 //custom header
 
 const CustomHeader = ({ scene, previous, navigation }) => {

@@ -3,12 +3,12 @@ import { Image, Text, View } from 'react-native'
 import { useFonts } from 'expo-font'
 
 const Splash = () => {
-	const [loaded, err] = useFonts({
-		Oswald: require('../fonts/Oswald-Medium.ttf'),
-	})
-
-	if (!loaded) {
-		return null
+	try {
+		const [loaded, err] = useFonts({
+			Oswald: require('../fonts/Oswald-Medium.ttf'),
+		})
+	} catch (error) {
+		console.log(error)
 	}
 
 	return (

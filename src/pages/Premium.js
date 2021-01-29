@@ -4,20 +4,20 @@ import { ScrollView } from 'react-native-gesture-handler'
 import { Colors } from 'react-native-paper'
 import Lista from '../components/Lista'
 
-const Premium = () => {
+const Premium = ({ navigation, route }) => {
 	return (
 		<ScrollView>
 			<View style={styles.container}>
-				<Text>Nivel Principiante</Text>
-				<Lista premium='true' />
+				<Text style={styles.text}>Nivel Principiante</Text>
+				<Lista premium='true' data={route.params.data} navigation={navigation} />
 			</View>
 			<View style={styles.container}>
-				<Text>Nivel Medio</Text>
-				<Lista premium='true' />
+				<Text style={styles.text}>Nivel Medio</Text>
+				<Lista premium='true' data={route.params.data} />
 			</View>
 			<View style={styles.container}>
-				<Text>Nivel Avanzado</Text>
-				<Lista premium='true' />
+				<Text style={styles.text}>Nivel Avanzado</Text>
+				<Lista premium='true' data={route.params.data} />
 			</View>
 		</ScrollView>
 	)
@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
 	container: {
 		margin: 'auto',
 		marginTop: '20px',
-		backgroundColor: Colors.green200,
 		width: '90%',
 		shadowColor: '#111',
 		shadowOffset: {
@@ -37,6 +36,13 @@ const styles = StyleSheet.create({
 		shadowOpacity: 0.3,
 		shadowRadius: 4.65,
 		elevation: 8,
+	},
+	text: {
+		fontWeight: 'bold',
+		fontSize: 20,
+		marginTop: 5,
+		marginLeft: 10,
+		marginBottom: 5,
 	},
 })
 

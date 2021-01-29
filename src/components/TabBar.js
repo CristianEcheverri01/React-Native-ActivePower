@@ -10,7 +10,7 @@ const TabBar = ({ state, navigation }) => {
 
 	const renderColor = currentTab => {
 		if (currentTab == selected) {
-			return '#AB812C'
+			return '#ff8e0a'
 		} else {
 			return '#171717'
 		}
@@ -51,10 +51,18 @@ const style = StyleSheet.create({
 	container: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
-		backgroundColor: '#FABC3227',
+		backgroundColor: '#eee',
 		width: 350,
 		borderRadius: 100,
 		elevation: 2,
+		shadowColor: '#111',
+		shadowOffset: {
+			width: 0,
+			height: 4,
+		},
+		shadowOpacity: 0.3,
+		shadowRadius: 4.65,
+		elevation: 8,
 	},
 })
 

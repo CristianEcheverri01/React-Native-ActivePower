@@ -4,12 +4,13 @@ import { NavigationContainer } from '@react-navigation/native'
 import TabNavigator from './src/TabNavigator'
 
 const App = () => {
+	//renderizado del splash
 	const [splash, setSplash] = useState(true)
 
 	useEffect(() => {
 		setTimeout(() => {
 			setSplash(false)
-		}, 2000)
+		}, 1000)
 	})
 	return <Selector splash={splash} />
 }
