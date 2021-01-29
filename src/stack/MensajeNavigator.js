@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 
-import Mensaje from '../pages/Mesaje'
+import Mensaje from '../pages/Mensaje'
 import { StyleSheet, View, Text, TextInput } from 'react-native'
 import { ScreenContainer } from 'react-native-screens'
 import { FontAwesome5, AntDesign } from '@expo/vector-icons'
