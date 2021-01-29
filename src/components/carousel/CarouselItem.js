@@ -15,11 +15,19 @@ const CarouselItem = ({ item }) => {
 			<Image style={styles.image} source={{ uri: item.img }} />
 			<View style={styles.textView}>
 				<Text style={styles.itemTitle}> {item.nombre}</Text>
-				<Text style={styles.itemDescription}></Text>
 
 				<AnimatedLinearGradient
 					colors={['#e8b923', '#fea724']}
-					style={{ width: '100%', zIndex: 1, borderRadius: 25 }}
+					style={{
+						width: '100%',
+						zIndex: 1,
+						borderRadius: 25,
+						shadowColor: '#000',
+						shadowOffset: { width: 0.8, height: 0.8 },
+						shadowOpacity: 1,
+						shadowRadius: 3,
+						elevation: 5,
+					}}
 				>
 					<Button
 						title='Entra'
@@ -36,9 +44,11 @@ const styles = StyleSheet.create({
 	cardView: {
 		flex: 1,
 		width: width - 20,
-		height: height / 3,
+		height: height / 4,
 		backgroundColor: 'white',
-		margin: 10,
+		marginLeft: 10,
+		marginRight: 10,
+		marginTop: 5,
 		borderRadius: 10,
 		shadowColor: '#000',
 		shadowOffset: { width: 0.5, height: 0.5 },
@@ -54,7 +64,7 @@ const styles = StyleSheet.create({
 	},
 	image: {
 		width: width - 20,
-		height: height / 3,
+		height: height / 4,
 		borderRadius: 10,
 	},
 	itemTitle: {
@@ -67,15 +77,6 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 		elevation: 5,
 		textShadowColor: '#000',
-	},
-	itemDescription: {
-		color: 'white',
-		fontSize: 12,
-		shadowColor: '#000',
-		shadowOffset: { width: 0.8, height: 0.8 },
-		shadowOpacity: 1,
-		shadowRadius: 3,
-		elevation: 5,
 	},
 	btn: {
 		backgroundColor: 'rgba(0,0,0,0)',
