@@ -5,6 +5,7 @@ import { Colors } from 'react-native-paper'
 import ListaChatEntrenador from '../components/ListaChatEntrenador'
 
 const Mensaje = ({ navigation, route }) => {
+	const salas = route.params
 	return (
 		<View>
 			<Text style={styles.principalText}>Chat con entrenador</Text>
@@ -12,22 +13,25 @@ const Mensaje = ({ navigation, route }) => {
 			<Text style={styles.principalText}>Salas sociales</Text>
 			<View style={styles.container}>
 				<View style={styles.card}>
-					<Text style={styles.cardTitle}>Sala 1</Text>
+					<Text style={styles.cardTitle}>{salas[0].nombre}</Text>
 					<Button
 						title='power'
 						buttonStyle={styles.cardBtn}
 						titleStyle={{ color: Colors.black }}
+						onPress={() => {
+							navigation.navigate('Sala')
+						}}
 					/>
-					<Text style={styles.cardFooter}>online 40</Text>
+					<Text style={styles.cardFooter}>online {salas[0].online}</Text>
 				</View>
 				<View style={styles.card}>
-					<Text style={styles.cardTitle}>Sala 2</Text>
+					<Text style={styles.cardTitle}>{salas[1].nombre}</Text>
 					<Button
 						title='power'
 						buttonStyle={styles.cardBtn}
 						titleStyle={{ color: Colors.black }}
 					/>
-					<Text style={styles.cardFooter}>online 40</Text>
+					<Text style={styles.cardFooter}>online {salas[1].online}</Text>
 				</View>
 			</View>
 		</View>
@@ -51,7 +55,7 @@ const data = [
 			'https://duemosli.blogs.uv.es/files/2019/01/Requisitos-estudios-y-cursos-para-ser-entrenador-de-f%C3%BAtbol.jpg',
 	},
 	{
-		nombre: 'nombre',
+		nombre: 'Johan Stiven Murillo',
 		img:
 			'https://www.clikisalud.net/wp-content/uploads/2019/08/consejos-top-entrenadores-personales-hacer-ejercicio.jpg',
 	},

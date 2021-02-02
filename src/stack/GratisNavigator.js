@@ -10,13 +10,82 @@ import Info from '../pages/Info'
 
 const Stack = createStackNavigator()
 
-const GratisNavigator = () => {
+const GratisNavigator = ({ navigation, route }) => {
+	const nav = route.params.navigation
+	const [showMenu, setShowMenu] = useState(false)
 	const getNumeber = () => {
 		let min = 0
 		let max = msg.length
 		return Math.floor(Math.random() * (max - min) + min)
 	}
 	const number = getNumeber()
+
+	//custom header
+
+	const CustomHeader = ({ scene, previous, navigation }) => {
+		const { options } = scene.descriptor
+		const title =
+			options.headerTitle !== undefined
+				? options.headerTitle
+				: options.title !== undefined
+				? options.title
+				: scene.route.name
+
+		return (
+			<Header
+				title={title}
+				leftButton={previous ? <BackBtn onPress={navigation.goBack} /> : undefined}
+				style={options.headerStyle}
+				navigator={navigation}
+			/>
+		)
+	}
+
+	const Header = ({ title, leftButton, navigator }) => {
+		const [value, setValue] = useState('')
+		return (
+			<ScreenContainer style={styles.bar}>
+				<View>
+					<Text style={styles.text}>{title}</Text>
+					<SelectorBtn leftBtn={leftButton} navigator={navigator} />
+				</View>
+				<View style={styles.inputContainer}>
+					<TextInput
+						style={styles.textInput}
+						onChangeText={text => setValue(text)}
+						value={value}
+					/>
+					<AntDesign style={styles.iconSearch} name='search1' size={20} color='black' />
+				</View>
+			</ScreenContainer>
+		)
+	}
+
+	const SelectorBtn = ({ leftBtn, navigator }) => {
+		if (leftBtn !== undefined) {
+			return <BackBtn onPress={navigator.goBack} />
+		} else {
+			return (
+				<IconButton
+					style={styles.icon}
+					icon={() => <FontAwesome5 name='bars' size={24} color={Colors.amber500} />}
+					onPress={() => {
+						nav.toggleDrawer()
+					}}
+				/>
+			)
+		}
+	}
+
+	const BackBtn = ({ onPress }) => {
+		return (
+			<IconButton
+				onPress={onPress}
+				icon={() => <AntDesign name='left' size={24} color={Colors.amber500} />}
+				style={styles.icon}
+			></IconButton>
+		)
+	}
 
 	return (
 		<Stack.Navigator>
@@ -80,69 +149,6 @@ const msg = [
 		msg: 'El dolor que sientes hoy es la fuerza que sentirás mañana',
 	},
 ]
-//custom header
-
-const CustomHeader = ({ scene, previous, navigation }) => {
-	const { options } = scene.descriptor
-	const title =
-		options.headerTitle !== undefined
-			? options.headerTitle
-			: options.title !== undefined
-			? options.title
-			: scene.route.name
-
-	return (
-		<Header
-			title={title}
-			leftButton={previous ? <BackBtn onPress={navigation.goBack} /> : undefined}
-			style={options.headerStyle}
-			navigator={navigation}
-		/>
-	)
-}
-
-const Header = ({ title, leftButton, navigator }) => {
-	const [value, setValue] = useState('')
-	return (
-		<ScreenContainer style={styles.bar}>
-			<View>
-				<Text style={styles.text}>{title}</Text>
-				<SelectorBtn leftBtn={leftButton} navigator={navigator} />
-			</View>
-			<View style={styles.inputContainer}>
-				<TextInput
-					style={styles.textInput}
-					onChangeText={text => setValue(text)}
-					value={value}
-				/>
-				<AntDesign style={styles.iconSearch} name='search1' size={20} color='black' />
-			</View>
-		</ScreenContainer>
-	)
-}
-
-const SelectorBtn = ({ leftBtn, navigator }) => {
-	if (leftBtn !== undefined) {
-		return <BackBtn onPress={navigator.goBack} />
-	} else {
-		return (
-			<IconButton
-				style={styles.icon}
-				icon={() => <FontAwesome5 name='bars' size={24} color={Colors.amber500} />}
-			/>
-		)
-	}
-}
-
-const BackBtn = ({ onPress }) => {
-	return (
-		<IconButton
-			onPress={onPress}
-			icon={() => <AntDesign name='left' size={24} color={Colors.amber500} />}
-			style={styles.icon}
-		></IconButton>
-	)
-}
 
 //styles
 const styles = StyleSheet.create({

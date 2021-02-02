@@ -4,7 +4,6 @@ import { Colors } from 'react-native-paper'
 import Carousel from './carousel/Carousel'
 
 const ListaChatEntrenador = ({ navigation, data }) => {
-	console.log(data)
 	return (
 		<View>
 			<Carousel data={data} />

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, StyleSheet, Text, View } from 'react-native'
 import Lista from '../components/Lista'
+import MenuHamburguesa from '../components/MenuHamburguesa'
 
 const Gratis = ({ navigation, route }) => {
 	return (

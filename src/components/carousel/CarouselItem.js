@@ -31,8 +31,8 @@ const CarouselItem = ({ item }) => {
 				>
 					<Button
 						title='Entra'
-						titleStyle={styles.btnTitle}
-						buttonStyle={styles.btn}
+						titleStyle={{ color: 'black', fontWeight: '400' }}
+						buttonStyle={{ backgroundColor: 'rgba(255,0,0,0)', borderRadius: 25 }}
 					></Button>
 				</AnimatedLinearGradient>
 			</View>
@@ -77,14 +77,6 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 		elevation: 5,
 		textShadowColor: '#000',
-	},
-	btn: {
-		backgroundColor: 'rgba(0,0,0,0)',
-		borderRadius: 25,
-	},
-	btnTitle: {
-		color: 'black',
-		fontWeight: '400',
 	},
 })
 

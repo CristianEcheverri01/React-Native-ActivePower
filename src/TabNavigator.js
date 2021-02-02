@@ -8,7 +8,7 @@ import PremiumNavigator from './stack/PremiumNavigator'
 
 const Tab = createBottomTabNavigator()
 
-const TabNavigator = () => {
+const TabNavigator = ({ navigation, route }) => {
 	return (
 		<Tab.Navigator
 			tabBar={props => {
@@ -18,22 +18,22 @@ const TabNavigator = () => {
 			<Tab.Screen
 				name='Gratis'
 				component={GratisNavigator}
-				initialParams={{ icon: 'home' }}
+				initialParams={{ icon: 'home', navigation }}
 			/>
 			<Tab.Screen
 				name='Premium'
 				component={PremiumNavigator}
-				initialParams={{ icon: 'staro' }}
+				initialParams={{ icon: 'staro', navigation }}
 			/>
 			<Tab.Screen
 				name='Mensaje'
 				component={MensajeNavigator}
-				initialParams={{ icon: 'message1' }}
+				initialParams={{ icon: 'message1', navigation }}
 			/>
 			<Tab.Screen
 				name='Cuenta'
 				component={ProfileNavigator}
-				initialParams={{ icon: 'user' }}
+				initialParams={{ icon: 'user', navigation }}
 			/>
 		</Tab.Navigator>
 	)

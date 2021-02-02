@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 
 import Mensaje from '../pages/Mensaje'
+import Chat from '../pages/Chat'
 import { StyleSheet, View, Text, TextInput } from 'react-native'
 import { ScreenContainer } from 'react-native-screens'
 import { FontAwesome5, AntDesign } from '@expo/vector-icons'
@@ -9,14 +10,91 @@ import { IconButton, Colors } from 'react-native-paper'
 
 const Stack = createStackNavigator()
 
-const MensajeNavigator = () => {
+const MensajeNavigator = ({ navigation, route }) => {
+	const nav = route.params.navigation
+
+	//custom header
+
+	const CustomHeader = ({ scene, previous, navigation }) => {
+		const { options } = scene.descriptor
+		const title =
+			options.headerTitle !== undefined
+				? options.headerTitle
+				: options.title !== undefined
+				? options.title
+				: scene.route.name
+
+		return (
+			<Header
+				title={title}
+				leftButton={previous ? <BackBtn onPress={navigation.goBack} /> : undefined}
+				style={options.headerStyle}
+				navigator={navigation}
+			/>
+		)
+	}
+
+	const Header = ({ title, leftButton, navigator }) => {
+		const [value, setValue] = useState('')
+		return (
+			<ScreenContainer style={styles.bar}>
+				<View>
+					<Text style={styles.text}>{title}</Text>
+					<SelectorBtn leftBtn={leftButton} navigator={navigator} />
+				</View>
+				<View style={styles.inputContainer}>
+					<TextInput
+						style={styles.textInput}
+						onChangeText={text => setValue(text)}
+						value={value}
+					/>
+					<AntDesign style={styles.iconSearch} name='search1' size={20} color='black' />
+				</View>
+			</ScreenContainer>
+		)
+	}
+
+	const SelectorBtn = ({ leftBtn, navigator }) => {
+		if (leftBtn !== undefined) {
+			console.log(navigator)
+			return <BackBtn onPress={navigator.goBack} />
+		} else {
+			return (
+				<IconButton
+					style={styles.icon}
+					icon={() => <FontAwesome5 name='bars' size={24} color={Colors.amber600} />}
+					onPress={() => nav.toggleDrawer()}
+				/>
+			)
+		}
+	}
+
+	const BackBtn = ({ onPress }) => {
+		return (
+			<IconButton
+				onPress={onPress}
+				icon={() => <AntDesign name='left' size={24} color='black' />}
+				style={styles.icon}
+			></IconButton>
+		)
+	}
+
 	return (
 		<Stack.Navigator>
 			<Stack.Screen
 				name='Mensaje'
 				component={Mensaje}
+				initialParams={data}
 				options={{
 					title: 'Chats',
+					header: CustomHeader,
+				}}
+			/>
+			<Stack.Screen
+				name='Sala'
+				component={Chat}
+				options={{
+					title: 'Sala',
 					header: CustomHeader,
 				}}
 			/>
@@ -24,70 +102,18 @@ const MensajeNavigator = () => {
 	)
 }
 
-//custom header
+//data
 
-const CustomHeader = ({ scene, previous, navigation }) => {
-	const { options } = scene.descriptor
-	const title =
-		options.headerTitle !== undefined
-			? options.headerTitle
-			: options.title !== undefined
-			? options.title
-			: scene.route.name
-
-	return (
-		<Header
-			title={title}
-			leftButton={previous ? <BackBtn onPress={navigation.goBack} /> : undefined}
-			style={options.headerStyle}
-			navigator={navigation}
-		/>
-	)
-}
-
-const Header = ({ title, leftButton, navigator }) => {
-	const [value, setValue] = useState('')
-	return (
-		<ScreenContainer style={styles.bar}>
-			<View>
-				<Text style={styles.text}>{title}</Text>
-				<SelectorBtn leftBtn={leftButton} navigator={navigator} />
-			</View>
-			<View style={styles.inputContainer}>
-				<TextInput
-					style={styles.textInput}
-					onChangeText={text => setValue(text)}
-					value={value}
-				/>
-				<AntDesign style={styles.iconSearch} name='search1' size={20} color='black' />
-			</View>
-		</ScreenContainer>
-	)
-}
-
-const SelectorBtn = ({ leftBtn, navigator }) => {
-	if (leftBtn !== undefined) {
-		console.log(navigator)
-		return <BackBtn onPress={navigator.goBack} />
-	} else {
-		return (
-			<IconButton
-				style={styles.icon}
-				icon={() => <FontAwesome5 name='bars' size={24} color={Colors.amber600} />}
-			/>
-		)
-	}
-}
-
-const BackBtn = ({ onPress }) => {
-	return (
-		<IconButton
-			onPress={onPress}
-			icon={() => <AntDesign name='left' size={24} color='black' />}
-			style={styles.icon}
-		></IconButton>
-	)
-}
+const data = [
+	{
+		nombre: 'Sala 1',
+		online: 40,
+	},
+	{
+		nombre: 'Sala 2',
+		online: 12,
+	},
+]
 
 //styles
 const styles = StyleSheet.create({
