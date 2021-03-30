@@ -1,13 +1,23 @@
+/*
+---- importes utilizados ----
+*/
 import React, { useState } from 'react'
 import { View, StyleSheet, Dimensions } from 'react-native'
 import Tab from './Tab'
 
+//obtencion de tamaño de pantalla
 const { width } = Dimensions.get('screen')
 
+/*
+---- lista de navegacion inferior ----
+*/
 const TabBar = ({ state, navigation }) => {
 	const [selected, setSelected] = useState('Gratis')
 	const { routes } = state
 
+	/*
+	---- selector de color ----
+	*/
 	const renderColor = currentTab => {
 		if (currentTab == selected) {
 			return '#ff8e0a'
@@ -16,6 +26,9 @@ const TabBar = ({ state, navigation }) => {
 		}
 	}
 
+	/*
+	---- obtencion del tab toque ----
+	*/
 	const handlePress = (activeTab, index) => {
 		if (state.index !== index) {
 			setSelected(activeTab)
@@ -40,6 +53,7 @@ const TabBar = ({ state, navigation }) => {
 	)
 }
 
+//estilos de la navegacion inferior
 const style = StyleSheet.create({
 	wrapper: {
 		position: 'absolute',

@@ -1,8 +1,14 @@
+/*
+---- importes utilizados ----
+*/
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import ListaInfo from './ListaInfo'
 
+/*
+---- vista de informacion de la rutina
+*/
 const InfoRutina = ({ navigation, route }) => {
 	return (
 		<ScrollView>
@@ -13,6 +19,8 @@ const InfoRutina = ({ navigation, route }) => {
 		</ScrollView>
 	)
 }
+
+//datos de prueba para mostrar rutinas
 const datas = [
 	{
 		img:
@@ -29,6 +37,8 @@ const datas = [
 		des: 'no hay nada de que hablar pa. ',
 	},
 ]
+
+//estilos de la vista
 const styles = StyleSheet.create({
 	img: {
 		width: '200px',

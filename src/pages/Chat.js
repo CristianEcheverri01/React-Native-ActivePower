@@ -1,6 +1,12 @@
+/*
+---- importes utilizados ----
+*/
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
+/*
+---- vista del chat ----
+*/
 const Chat = ({ navigation, route }) => {
 	return (
 		<View style={styles.container}>
@@ -9,6 +15,7 @@ const Chat = ({ navigation, route }) => {
 	)
 }
 
+//estilos del chat
 const styles = StyleSheet.create({
 	container: {
 		backgroundColor: '#FFF0D8',

@@ -1,3 +1,6 @@
+/*
+------ importes utilizados ------
+*/
 import { DrawerContentScrollView } from '@react-navigation/drawer'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
@@ -5,8 +8,11 @@ import { Drawer } from 'react-native-paper'
 import { FontAwesome, AntDesign, MaterialCommunityIcons } from '@expo/vector-icons'
 import { useFonts } from 'expo-font'
 
+/*
+----- contenido de el munu de hamburgesa
+*/
 const DrawerContent = props => {
-	//custom font
+	//fuente customizada
 	try {
 		const [loaded, err] = useFonts({
 			Oswald: require('../../fonts/Oswald-Medium.ttf'),
@@ -62,7 +68,7 @@ const DrawerContent = props => {
 		</View>
 	)
 }
-
+// estilos utilizados para la hamburguesa
 const styles = StyleSheet.create({
 	title: {
 		fontSize: 25,

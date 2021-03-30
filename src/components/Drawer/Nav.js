@@ -1,12 +1,20 @@
+/*
+--------------- importaciones utilizados ------------------
+*/
+
 import React, { useState } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import { Colors, IconButton } from 'react-native-paper'
 import { ScreenContainer } from 'react-native-screens'
 import { FontAwesome5, AntDesign } from '@expo/vector-icons'
 
+/*
+----- modificacion de la barra superior de la navegacion ----
+*/
 const Nav = ({ navigation, title }) => {
-	//custom header
-
+	/*
+	----- cabecera modificada -----
+	*/
 	const CustomHeader = ({ navigation, title }) => {
 		return (
 			<Header
@@ -17,6 +25,9 @@ const Nav = ({ navigation, title }) => {
 		)
 	}
 
+	/*
+	----- cabecera ----
+	*/
 	const Header = ({ title, leftButton, navigator }) => {
 		const [value, setValue] = useState('')
 		return (
@@ -29,6 +40,9 @@ const Nav = ({ navigation, title }) => {
 		)
 	}
 
+	/*
+	---- selector de boton hamburguesa o de devolver -----
+	*/
 	const SelectorBtn = ({ leftBtn, navigator }) => {
 		if (leftBtn !== undefined) {
 			return <BackBtn onPress={navigator.goBack} />
@@ -45,6 +59,9 @@ const Nav = ({ navigation, title }) => {
 		}
 	}
 
+	/*
+	---- renderizado del boton devolver ----
+	*/
 	const BackBtn = ({ onPress }) => {
 		return (
 			<IconButton
@@ -61,6 +78,7 @@ const Nav = ({ navigation, title }) => {
 	)
 }
 
+// estilos utlizados para la barra de la parte superior
 const styles = StyleSheet.create({
 	bar: {
 		height: '50px',

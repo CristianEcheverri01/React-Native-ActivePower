@@ -1,12 +1,19 @@
+/*
+---- importes utilizados ----
+*/
 import { LinearGradient } from 'expo-linear-gradient'
 import React from 'react'
 import { Text, View, TextInput, StyleSheet, Image, Dimensions } from 'react-native'
 import { Button } from 'react-native-elements'
 import { Colors } from 'react-native-paper'
 
+//obtencion de tamaño de la ventana
 const width = Dimensions.get('window').width
 const height = Dimensions.get('window').height
 
+/*
+---- vista de inicio ----
+*/
 const Inicio = () => (
 	<View>
 		<Image

@@ -1,7 +1,13 @@
+/*
+---- importe necesarios ---- 
+*/
 import React from 'react'
 import { Text, StyleSheet, View, TouchableOpacity } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 
+/*
+---- renderizado de item de la navegacion inferior ----
+*/
 const Tab = ({ tab, icon, onPress, color }) => {
 	return (
 		<TouchableOpacity style={style.container} onPress={onPress}>
@@ -11,6 +17,7 @@ const Tab = ({ tab, icon, onPress, color }) => {
 	)
 }
 
+//estilos de la navegacion inferior
 const style = StyleSheet.create({
 	container: {
 		flex: 1,

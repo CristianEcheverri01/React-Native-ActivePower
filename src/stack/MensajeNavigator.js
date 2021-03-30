@@ -1,6 +1,8 @@
+/*
+---- importes utilizados ----
+*/
 import React, { useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-
 import Mensaje from '../pages/Mensaje'
 import Chat from '../pages/Chat'
 import { StyleSheet, View, Text, TextInput } from 'react-native'
@@ -8,12 +10,21 @@ import { ScreenContainer } from 'react-native-screens'
 import { FontAwesome5, AntDesign } from '@expo/vector-icons'
 import { IconButton, Colors } from 'react-native-paper'
 
+//instanciacion de stack
 const Stack = createStackNavigator()
 
+/*
+---- stack mensaje ----
+*/
 const MensajeNavigator = ({ navigation, route }) => {
 	const nav = route.params.navigation
 
 	//custom header
+	/*
+	-----------------------------------------
+		PENDIENTE PARA REVICION PROFUNDA
+	-----------------------------------------
+	*/
 
 	const CustomHeader = ({ scene, previous, navigation }) => {
 		const { options } = scene.descriptor
@@ -102,7 +113,7 @@ const MensajeNavigator = ({ navigation, route }) => {
 	)
 }
 
-//data
+//datos de prueba
 
 const data = [
 	{
@@ -115,7 +126,7 @@ const data = [
 	},
 ]
 
-//styles
+//estilos de stack mensaje
 const styles = StyleSheet.create({
 	bar: {
 		height: '50px',

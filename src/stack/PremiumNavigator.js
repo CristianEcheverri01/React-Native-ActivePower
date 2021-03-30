@@ -1,3 +1,6 @@
+/*
+---- importes utilizados ----
+*/
 import React, { useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { FontAwesome5, AntDesign } from '@expo/vector-icons'
@@ -6,13 +9,22 @@ import { IconButton, Colors } from 'react-native-paper'
 import { ScreenContainer } from 'react-native-screens'
 import Premium from '../pages/Premium'
 
+//instanciacion de stack
 const Stack = createStackNavigator()
 
+/*
+---- stack Premium ----
+*/
 const PremiumNavigator = ({ navigation, route }) => {
 	const nav = route.params.navigation
 
 	//custom header
 
+	/*
+	-----------------------------------------
+		PENDIENTE PARA REVICION PROFUNDA
+	-----------------------------------------
+	*/
 	const CustomHeader = ({ scene, previous, navigation }) => {
 		const { options } = scene.descriptor
 		const title =
@@ -92,7 +104,7 @@ const PremiumNavigator = ({ navigation, route }) => {
 	)
 }
 
-//data
+//datos de prueba
 const data = [
 	{
 		img:
@@ -109,7 +121,7 @@ const data = [
 	},
 ]
 
-//styles
+//estilos de stack premium
 const styles = StyleSheet.create({
 	bar: {
 		height: '50px',

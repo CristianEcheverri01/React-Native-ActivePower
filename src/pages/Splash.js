@@ -1,7 +1,13 @@
+/*
+---- importes utilizados ----
+*/
 import React from 'react'
 import { Image, Text, View } from 'react-native'
 import { useFonts } from 'expo-font'
 
+/*
+---- vista del splash ----
+*/
 const Splash = () => {
 	try {
 		const [loaded, err] = useFonts({

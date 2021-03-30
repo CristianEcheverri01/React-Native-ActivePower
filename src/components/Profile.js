@@ -1,6 +1,12 @@
+/*
+---- importes utilizados ----
+*/
 import React from 'react'
 import { View, StyleSheet, Text, Button } from 'react-native'
 
+/*
+---- renderizado del perfil
+*/
 const Profile = () => {
 	return (
 		<View style={style.container}>
@@ -10,6 +16,7 @@ const Profile = () => {
 	)
 }
 
+//estilos de perfil
 const style = StyleSheet.create({
 	container: {
 		flex: 1,

@@ -1,3 +1,6 @@
+/*
+---- importes utilizados ----
+*/
 import React, { useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { FontAwesome5, AntDesign } from '@expo/vector-icons'
@@ -6,13 +9,22 @@ import { StyleSheet, Text, View, TextInput } from 'react-native'
 import { IconButton, Colors } from 'react-native-paper'
 import { ScreenContainer } from 'react-native-screens'
 
+//instanciacion de stack
 const Stack = createStackNavigator()
 
+/*
+---- stack profile ----
+*/
 const ProfileNavigator = ({ navigation, route }) => {
 	const nav = route.params.navigation
 
 	//custom header
 
+	/*
+	-----------------------------------------
+		PENDIENTE PARA REVICION PROFUNDA
+	-----------------------------------------
+	*/
 	const CustomHeader = ({ scene, previous, navigation }) => {
 		const { options } = scene.descriptor
 		const title =
@@ -102,7 +114,7 @@ const ProfileNavigator = ({ navigation, route }) => {
 	)
 }
 
-//styles
+//estilos de stack profile
 const styles = StyleSheet.create({
 	bar: {
 		height: '50px',

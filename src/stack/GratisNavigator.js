@@ -1,3 +1,6 @@
+/*
+---- importes utilizados ----
+*/
 import React, { useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { FontAwesome5, AntDesign } from '@expo/vector-icons'
@@ -8,8 +11,12 @@ import { ScreenContainer } from 'react-native-screens'
 import InfoRutina from '../components/InfoRutina'
 import Info from '../pages/Info'
 
+//instanciacion de stack
 const Stack = createStackNavigator()
 
+/*
+---- stack gratis ----
+*/
 const GratisNavigator = ({ navigation, route }) => {
 	const nav = route.params.navigation
 	const [showMenu, setShowMenu] = useState(false)
@@ -21,6 +28,11 @@ const GratisNavigator = ({ navigation, route }) => {
 	const number = getNumeber()
 
 	//custom header
+	/*
+	-----------------------------------------
+		PENDIENTE PARA REVICION PROFUNDA
+	-----------------------------------------
+	*/
 
 	const CustomHeader = ({ scene, previous, navigation }) => {
 		const { options } = scene.descriptor
@@ -118,7 +130,7 @@ const GratisNavigator = ({ navigation, route }) => {
 	)
 }
 
-//data
+//datos de prueba
 const data = [
 	{
 		img:
@@ -135,7 +147,7 @@ const data = [
 	},
 ]
 
-//msg
+//mensages de prueba
 
 const msg = [
 	{
@@ -150,7 +162,7 @@ const msg = [
 	},
 ]
 
-//styles
+//estilos de stack gratis
 const styles = StyleSheet.create({
 	bar: {
 		height: '50px',

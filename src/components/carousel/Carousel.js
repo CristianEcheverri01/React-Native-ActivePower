@@ -1,10 +1,19 @@
+/*
+----------------- importe de las librerias utilizadas ------
+*/
 import React, { useState, useEffect } from 'react'
 import { View, Text, StyleSheet, Dimensions, FlatList, Animated } from 'react-native'
 import CarouselItem from './CarouselItem'
 
+/*
+---------obtencion de dimensiones de la ventana----------
+ */
 const { width, heigth } = Dimensions.get('window')
 
 let flatList
+/* 
+------------- scroll infinito de la app -----------------
+*/
 function infiniteScroll(dataList) {
 	const numberOfData = dataList.length
 	let scrollValue = 0,
@@ -22,6 +31,9 @@ function infiniteScroll(dataList) {
 	}, 3000)
 }
 
+/*
+------------------ seteó de carousel -----------------------------
+*/
 const Carousel = ({ data }) => {
 	const scrollX = new Animated.Value(0)
 	let position = Animated.divide(scrollX, width)
@@ -83,7 +95,9 @@ const Carousel = ({ data }) => {
 	console.log('Please provide Images')
 	return null
 }
-
+/*
+--------- estilos del carrusel -------------
+*/
 const styles = StyleSheet.create({
 	dotView: { flexDirection: 'row', justifyContent: 'center' },
 })

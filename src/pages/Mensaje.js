@@ -4,6 +4,9 @@ import { Button } from 'react-native-elements'
 import { Colors } from 'react-native-paper'
 import ListaChatEntrenador from '../components/ListaChatEntrenador'
 
+/*
+---- vista del modulo del mensaje ----
+*/
 const Mensaje = ({ navigation, route }) => {
 	const salas = route.params
 	return (
@@ -38,6 +41,7 @@ const Mensaje = ({ navigation, route }) => {
 	)
 }
 
+//datos de prueba
 const data = [
 	{
 		nombre: 'Daniel Stiven Agudelo',
@@ -61,6 +65,7 @@ const data = [
 	},
 ]
 
+// estilos utilizados para vista mensajes
 const styles = StyleSheet.create({
 	principalText: {
 		textAlign: 'center',

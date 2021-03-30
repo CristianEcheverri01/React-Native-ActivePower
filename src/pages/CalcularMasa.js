@@ -1,6 +1,13 @@
+/*
+---- importes utilizados ----
+*/
 import React from 'react'
 import { View } from 'react-native'
 import Nav from '../components/Drawer/Nav'
+
+/*
+---- vista de la calculadora ----
+*/
 
 const CalculaMasa = ({ navigation, route }) => {
 	return (

@@ -1,9 +1,15 @@
+/*
+---- importes utilizados ----
+*/
 import { Video } from 'expo-av'
 import React from 'react'
 import { View, Text, Image, StyleSheet } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import { Colors } from 'react-native-paper'
 
+/*
+---- vista de info ----
+*/
 const Info = ({ navigation, route }) => {
 	const data = route.params.data
 	return (
@@ -38,6 +44,7 @@ const Info = ({ navigation, route }) => {
 	)
 }
 
+//estilos de info
 const styles = StyleSheet.create({
 	container: {
 		marginTop: '20px',

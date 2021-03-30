@@ -1,3 +1,6 @@
+/*
+---- importes utilizados ----
+*/
 import React, { useState } from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import TabBar from './components/TabBar'
@@ -6,8 +9,12 @@ import GratisNavigator from './stack/GratisNavigator'
 import MensajeNavigator from './stack/MensajeNavigator'
 import PremiumNavigator from './stack/PremiumNavigator'
 
+//instanciacion de menu inferior
 const Tab = createBottomTabNavigator()
 
+/*
+---- menu inferior ----
+*/
 const TabNavigator = ({ navigation, route }) => {
 	return (
 		<Tab.Navigator

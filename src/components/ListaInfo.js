@@ -1,10 +1,19 @@
+/*
+---- importes utilizados ---- 
+*/
 import React from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native'
 import { FlatList, ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
 
+/*
+---- renderizado de la lista de la vista inforRutina
+*/
 const ListaInfo = ({ navigation, premium, data }) => {
 	const keyExtractor = (item, index) => index.toString()
 
+	/*
+	---- visualizacion de item
+	*/
 	const renderItem = ({ item }) => {
 		console.log(item)
 		return (
@@ -21,20 +30,22 @@ const ListaInfo = ({ navigation, premium, data }) => {
 			</TouchableOpacity>
 		)
 	}
-
+	/*
+	---- detector de en que vista se esta renderizando entre premium y gratis ----
+	*/
 	const Selector = ({ item }) => {
 		if (premium) {
 			return (
 				<View>
-					<Text style={styles.titlesito}>{item.nombre}</Text>
-					<Text style={styles.dessito}>{item.des}</Text>
+					<Text style={styles.titlePremium}>{item.nombre}</Text>
+					<Text style={styles.desPremium}>{item.des}</Text>
 				</View>
 			)
 		} else {
 			return (
 				<View>
-					<Text style={styles.title}>{item.nombre}</Text>
-					<Text style={styles.des}>{item.des}</Text>
+					<Text style={styles.titleGratis}>{item.nombre}</Text>
+					<Text style={styles.desGratis}>{item.des}</Text>
 				</View>
 			)
 		}
@@ -49,6 +60,7 @@ const ListaInfo = ({ navigation, premium, data }) => {
 	)
 }
 
+//estilos de la lista
 const styles = StyleSheet.create({
 	container: {
 		marginTop: '10px',
@@ -74,23 +86,23 @@ const styles = StyleSheet.create({
 	img: {
 		borderRadius: '25px',
 	},
-	title: {
+	titleGratis: {
 		marginTop: '5px',
 		marginLeft: '200px',
 		fontWeight: 'bold',
 		fontSize: '20px',
 	},
-	des: {
+	desGratis: {
 		marginTop: '10px',
 		marginLeft: '150px',
 	},
-	titlesito: {
+	titlePremium: {
 		marginTop: '5px',
 		marginLeft: '180px',
 		fontWeight: 'bold',
 		fontSize: '20px',
 	},
-	dessito: {
+	desPremium: {
 		marginTop: '10px',
 		marginLeft: '130px',
 	},

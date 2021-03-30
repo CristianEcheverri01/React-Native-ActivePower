@@ -1,3 +1,6 @@
+/*
+---- archivo de pruebas para testear cualquier funcion y/o componente ----
+*/
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import React from 'react'
 import { Text, View } from 'react-native'

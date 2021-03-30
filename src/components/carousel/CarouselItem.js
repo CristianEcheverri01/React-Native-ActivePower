@@ -1,3 +1,6 @@
+/*
+-------- importes utilizados --------------
+*/
 import React from 'react'
 import { View, StyleSheet, Text, Image, Dimensions } from 'react-native'
 import { Button } from 'react-native-elements'
@@ -5,10 +8,14 @@ import { Colors } from 'react-native-paper'
 import { LinearGradient } from 'expo-linear-gradient'
 import { Animated } from 'react-native'
 
+//obtencion de las dimenciones de la ventana
 const { width, height } = Dimensions.get('window')
 
+//creacion de degradado
 const AnimatedLinearGradient = Animated.createAnimatedComponent(LinearGradient)
-
+/*
+------------- visualizacion de imagen, boton del chat con los entrenadores -----------------
+*/
 const CarouselItem = ({ item }) => {
 	return (
 		<View style={styles.cardView}>
@@ -40,6 +47,7 @@ const CarouselItem = ({ item }) => {
 	)
 }
 
+// estilo de item
 const styles = StyleSheet.create({
 	cardView: {
 		flex: 1,

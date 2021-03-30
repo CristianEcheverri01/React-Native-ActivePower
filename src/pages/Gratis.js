@@ -1,8 +1,14 @@
+/*
+---- importes utilizados ----
+*/
 import React from 'react'
 import { Button, StyleSheet, Text, View } from 'react-native'
 import Lista from '../components/Lista'
 import MenuHamburguesa from '../components/MenuHamburguesa'
 
+/*
+---- vista de rutinas gratis ----
+*/
 const Gratis = ({ navigation, route }) => {
 	return (
 		<View>
@@ -12,6 +18,7 @@ const Gratis = ({ navigation, route }) => {
 	)
 }
 
+//estilos de Gratis
 const Styles = StyleSheet.create({
 	text: {
 		textAlign: 'center',
