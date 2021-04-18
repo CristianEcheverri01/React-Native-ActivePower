@@ -84,13 +84,13 @@ const styles = StyleSheet.create({
 		position: 'relative',
 	},
 	img: {
-		borderRadius: '25px',
+		borderRadius: 25,
 	},
 	titleGratis: {
 		marginTop: '5px',
 		marginLeft: '200px',
 		fontWeight: 'bold',
-		fontSize: '20px',
+		fontSize: 20,
 	},
 	desGratis: {
 		marginTop: '10px',
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
 		marginTop: '5px',
 		marginLeft: '180px',
 		fontWeight: 'bold',
-		fontSize: '20px',
+		fontSize: 20,
 	},
 	desPremium: {
 		marginTop: '10px',
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
 		height: '95%',
 		marginLeft: '5px',
 		marginTop: '1%',
-		borderRadius: '15px',
+		borderRadius: 15,
 	},
 })
 

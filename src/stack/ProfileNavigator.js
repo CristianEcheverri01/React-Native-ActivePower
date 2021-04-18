@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
 		marginLeft: '125px',
 		marginTop: '12px',
 		fontWeight: 'bold',
-		fontSize: '18px',
+		fontSize: 18,
 	},
 	icon: {
 		padding: 0,
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		height: '30px',
 		width: '80px',
-		borderRadius: '25px',
+		borderRadius: 25,
 		textAlign: 'center',
 	},
 	iconSearch: {

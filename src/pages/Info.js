@@ -95,13 +95,13 @@ const styles = StyleSheet.create({
 		marginTop: '5px',
 		textAlign: 'center',
 		fontWeight: 'bold',
-		fontSize: '20px',
+		fontSize: 20,
 	},
 	title: {
 		marginTop: '5px',
 		textAlign: 'center',
 		fontWeight: 'bold',
-		fontSize: '20px',
+		fontSize: 20,
 	},
 })
 

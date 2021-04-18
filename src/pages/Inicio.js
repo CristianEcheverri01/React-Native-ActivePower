@@ -34,7 +34,7 @@ const Inicio = () => (
 			colors={['#E84B1990', '#FF050590']}
 			style={{
 				marginTop: '60px',
-				borderRadius: '20px',
+				borderRadius: 20,
 				width: '200px',
 				height: '50px',
 				margin: 'auto',
@@ -50,7 +50,7 @@ const Inicio = () => (
 			colors={['#E84B1990', '#FF050590']}
 			style={{
 				marginTop: '30px',
-				borderRadius: '20px',
+				borderRadius: 20,
 				width: '200px',
 				height: '50px',
 				margin: 'auto',

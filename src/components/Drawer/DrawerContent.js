@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
 	title: {
 		fontSize: 25,
 		fontFamily: 'Oswald',
-		fontWeight: 500,
+		fontWeight: '500',
 		margin: 'auto',
 		marginTop: '45px',
 		marginBottom: '45px',
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
 	item: {
 		color: 'red',
 		fontSize: 40,
-		fontWeight: 500,
+		fontWeight: '500',
 		margin: 'auto',
 	},
 })

@@ -31,7 +31,7 @@ const Splash = () => {
 			/>
 			<Text
 				style={{
-					fontSize: '35px',
+					fontSize: 35,
 					textAlign: 'center',
 					position: 'absolute',
 					top: '70%',
