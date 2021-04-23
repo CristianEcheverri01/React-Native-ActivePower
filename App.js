@@ -7,6 +7,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import TabNavigator from './src/TabNavigator'
 import MenuHamburguesa from './src/components/MenuHamburguesa'
 import { ScreenContainer } from 'react-native-screens'
+import InicioNavegation from './src/stack/InicioNavegation'
 
 /* 
 ---- este es el tiempo que  demora el splahs ----
@@ -31,7 +32,7 @@ const Selector = ({ splash }) => {
 	} else {
 		return (
 			<NavigationContainer>
-				<MenuHamburguesa />
+				<InicioNavegation />
 			</NavigationContainer>
 		)
 	}

@@ -1,7 +1,7 @@
 /*
 ---- importes utilizados ----
 */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { FontAwesome5, AntDesign } from '@expo/vector-icons'
 import Gratis from '../pages/Gratis'
@@ -10,6 +10,7 @@ import { IconButton, Colors } from 'react-native-paper'
 import { ScreenContainer } from 'react-native-screens'
 import InfoRutina from '../components/InfoRutina'
 import Info from '../pages/Info'
+import firebase from '../../database/firebase'
 
 //instanciacion de stack
 const Stack = createStackNavigator()
@@ -19,13 +20,8 @@ const Stack = createStackNavigator()
 */
 const GratisNavigator = ({ navigation, route }) => {
 	const nav = route.params.navigation
+	const [mensaje, setMensaje] = useState([])
 	const [showMenu, setShowMenu] = useState(false)
-	const getNumeber = () => {
-		let min = 0
-		let max = msg.length
-		return Math.floor(Math.random() * (max - min) + min)
-	}
-	const number = getNumeber()
 
 	//custom header
 	/*
@@ -43,10 +39,15 @@ const GratisNavigator = ({ navigation, route }) => {
 				? options.title
 				: scene.route.name
 
+		const ruta = previous.route.name
 		return (
 			<Header
 				title={title}
-				leftButton={previous ? <BackBtn onPress={navigation.goBack} /> : undefined}
+				leftButton={
+					ruta == 'registro' || ruta == 'login' ? undefined : (
+						<BackBtn onPress={navigation.goBack} />
+					)
+				}
 				style={options.headerStyle}
 				navigator={navigation}
 			/>
@@ -98,12 +99,11 @@ const GratisNavigator = ({ navigation, route }) => {
 			></IconButton>
 		)
 	}
-
 	return (
 		<Stack.Navigator>
 			<Stack.Screen
 				component={Gratis}
-				initialParams={{ data, msg: msg[number] }}
+				initialParams={{ data, mensaje, setMensaje }}
 				name='Gratis'
 				options={{
 					title: 'Rutinas gratuitas',
@@ -135,32 +135,21 @@ const data = [
 	{
 		img:
 			'https://image.freepik.com/foto-gratis/grupo-personas-haciendo-ejercicios-calentamiento-gimnasio_23-2147949530.jpg',
-		nombre: 'loquito',
+		nombre: 'imagenDeSuperacion1',
 		des:
 			'Esta rutina es pensada para los principiantes, para entrenar todo el cuepesillo. ',
 	},
 	{
 		img:
 			'https://image.freepik.com/vector-gratis/establecer-personas-haciendo-ejercicio_18591-36176.jpg',
-		nombre: 'prueba',
+		nombre: 'imagenDeSuperacion2',
 		des: 'no hay nada de que hablar pa. ',
 	},
 ]
 
-//mensages de prueba
+//mensages
 
-const msg = [
-	{
-		msg: 'Si entrenas duro, no solo seras duro, seras duro de superar',
-	},
-	{
-		msg:
-			'Nuestro cuerpo es capaz de todo. Es nuestra mente a quien tenemos que convencer',
-	},
-	{
-		msg: 'El dolor que sientes hoy es la fuerza que sentirás mañana',
-	},
-]
+const getMesanjes = async () => {}
 
 //estilos de stack gratis
 const styles = StyleSheet.create({
