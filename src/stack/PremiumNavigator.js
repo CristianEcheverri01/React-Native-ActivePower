@@ -34,10 +34,15 @@ const PremiumNavigator = ({ navigation, route }) => {
 				? options.title
 				: scene.route.name
 
+		const ruta = previous.route.name
 		return (
 			<Header
 				title={title}
-				leftButton={previous ? <BackBtn onPress={navigation.goBack} /> : undefined}
+				leftButton={
+					ruta == 'registro' || ruta == 'login' ? undefined : (
+						<BackBtn onPress={navigation.goBack} />
+					)
+				}
 				style={options.headerStyle}
 				navigator={navigation}
 			/>

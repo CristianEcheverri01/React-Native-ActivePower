@@ -10,28 +10,13 @@ import firebase from '../../database/firebase'
 ---- vista de rutinas gratis ----
 */
 const Gratis = ({ navigation, route }) => {
-	const [dato, setDato] = useState({ msg: '' })
-	const mensajes = []
-
-	firebase.db.collection('mensaje').onSnapshot(query => {
-		query.docs.forEach(doc => {
-			mensajes.push(doc.data().msg)
-		})
-	})
-
 	let min = 0
-	let max = 3
+	let max = route.params.mensaje.length
 	let numero = Math.floor(Math.random() * (max - min) + min)
-
-	useEffect(() => {
-		setDato(mensajes[numero])
-		console.log(dato)
-	}, [])
-
 	return (
 		<View>
 			<Text id='text' style={Styles.text}>
-				oe
+				{route.params.mensaje[numero]}
 			</Text>
 			<Lista navigation={navigation} data={route.params.data} />
 		</View>
