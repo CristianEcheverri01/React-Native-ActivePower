@@ -1,14 +1,12 @@
 /*
 ---- importes utilizados ----
 */
-import React, { useState } from 'react'
+import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import Mensaje from '../pages/Mensaje'
 import Chat from '../pages/Chat'
-import { StyleSheet, View, Text, TextInput } from 'react-native'
-import { ScreenContainer } from 'react-native-screens'
-import { FontAwesome5, AntDesign } from '@expo/vector-icons'
-import { IconButton, Colors } from 'react-native-paper'
+import { StyleSheet } from 'react-native'
+import HeaderStack from '../components/HeaderStack'
 
 //instanciacion de stack
 const Stack = createStackNavigator()
@@ -19,82 +17,6 @@ const Stack = createStackNavigator()
 const MensajeNavigator = ({ navigation, route }) => {
 	const nav = route.params.navigation
 
-	//custom header
-	/*
-	-----------------------------------------
-		PENDIENTE PARA REVICION PROFUNDA
-	-----------------------------------------
-	*/
-
-	const CustomHeader = ({ scene, previous, navigation }) => {
-		const { options } = scene.descriptor
-		const title =
-			options.headerTitle !== undefined
-				? options.headerTitle
-				: options.title !== undefined
-				? options.title
-				: scene.route.name
-
-		const ruta = previous.route.name
-		return (
-			<Header
-				title={title}
-				leftButton={
-					ruta == 'registro' || ruta == 'login' ? undefined : (
-						<BackBtn onPress={navigation.goBack} />
-					)
-				}
-				style={options.headerStyle}
-				navigator={navigation}
-			/>
-		)
-	}
-
-	const Header = ({ title, leftButton, navigator }) => {
-		const [value, setValue] = useState('')
-		return (
-			<ScreenContainer style={styles.bar}>
-				<View>
-					<Text style={styles.text}>{title}</Text>
-					<SelectorBtn leftBtn={leftButton} navigator={navigator} />
-				</View>
-				<View style={styles.inputContainer}>
-					<TextInput
-						style={styles.textInput}
-						onChangeText={text => setValue(text)}
-						value={value}
-					/>
-					<AntDesign style={styles.iconSearch} name='search1' size={20} color='black' />
-				</View>
-			</ScreenContainer>
-		)
-	}
-
-	const SelectorBtn = ({ leftBtn, navigator }) => {
-		if (leftBtn !== undefined) {
-			console.log(navigator)
-			return <BackBtn onPress={navigator.goBack} />
-		} else {
-			return (
-				<IconButton
-					style={styles.icon}
-					icon={() => <FontAwesome5 name='bars' size={24} color={Colors.amber600} />}
-					onPress={() => nav.toggleDrawer()}
-				/>
-			)
-		}
-	}
-
-	const BackBtn = ({ onPress }) => {
-		return (
-			<IconButton
-				onPress={onPress}
-				icon={() => <AntDesign name='left' size={24} color='black' />}
-				style={styles.icon}
-			></IconButton>
-		)
-	}
-
 	return (
 		<Stack.Navigator>
 			<Stack.Screen
@@ -103,7 +25,7 @@ const MensajeNavigator = ({ navigation, route }) => {
 				initialParams={data}
 				options={{
 					title: 'Chats',
-					header: CustomHeader,
+					header: HeaderStack,
 				}}
 			/>
 			<Stack.Screen
@@ -111,7 +33,7 @@ const MensajeNavigator = ({ navigation, route }) => {
 				component={Chat}
 				options={{
 					title: 'Sala',
-					header: CustomHeader,
+					header: HeaderStack,
 				}}
 			/>
 		</Stack.Navigator>
