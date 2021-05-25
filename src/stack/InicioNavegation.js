@@ -18,6 +18,7 @@ const Stack = createStackNavigator()
 ---- stack Inicio ----
 */
 const InicioNavigator = props => {
+	console.log('inicio')
 	const CustomHeader = ({ scene, previous, navigation }) => {
 		const { options } = scene.descriptor
 		return (

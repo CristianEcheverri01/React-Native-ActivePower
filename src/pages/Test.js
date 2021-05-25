@@ -10,11 +10,6 @@ import Inicio from '../pages/Inicio'
 
 const Tab = createBottomTabNavigator()
 
-const Test = () => (
-	<Tab.Navigator>
-		<Tab.Screen name='principal' component={GratisNavigator} />
-		<Tab.Screen name='second' component={PremiumNavigation} />
-	</Tab.Navigator>
-)
+const Test = () => <View></View>
 
 export default Test

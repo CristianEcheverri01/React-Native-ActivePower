@@ -15,6 +15,7 @@ const height = Dimensions.get('window').height
 ---- vista de inicio ----
 */
 const Inicio = ({ navigation }) => {
+	console.log('inicio de la app')
 	return (
 		<View>
 			<Image

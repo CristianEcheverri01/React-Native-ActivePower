@@ -4,9 +4,6 @@
 import React, { useState, useEffect } from 'react'
 import SplashScreen from './src/pages/Splash'
 import { NavigationContainer } from '@react-navigation/native'
-import TabNavigator from './src/TabNavigator'
-import MenuHamburguesa from './src/components/MenuHamburguesa'
-import { ScreenContainer } from 'react-native-screens'
 import InicioNavegation from './src/stack/InicioNavegation'
 
 /* 
